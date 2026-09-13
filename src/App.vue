@@ -59,7 +59,8 @@ onMounted(() => {
   <div class="site-shell">
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Brown Pixels home">
-        <span class="brand-bp">BP</span>
+        <!-- <span class="brand-bp">BP</span> -->
+            <img src="/assets/brown-pixels-icon.png" alt="BP" class="brand-bp" />
         <span class="brand-name">BROWN <em>PIXELS</em></span>
       </a>
       <nav class="desktop-nav" aria-label="Primary navigation">
