@@ -1,14 +1,15 @@
 // Real clients — verified, live links.
 export const realClients = [
+  
+  {
+    name: 'Upliftidea',
+    url: 'https://upliftidea.in/',
+    note: 'Live site'
+  },
   {
     name: 'Leafy',
     url: 'https://leafy-demo.vercel.app',
     note: 'Live demo'
-  },
-  {
-    name: 'Upliftidea',
-    url: 'https://upliftidea.vercel.app/',
-    note: 'Live site'
   },
    {
     name: 'Thirupati Rice Mill',
