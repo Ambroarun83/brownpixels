@@ -7,7 +7,7 @@ export const realClients = [
   },
   {
     name: 'Upliftidea',
-    url: 'https://upliftidea.digital',
+    url: 'https://upliftidea.vercel.app/',
     note: 'Live site'
   },
    {
