@@ -9,7 +9,12 @@ export const realClients = [
     name: 'Upliftidea',
     url: 'https://upliftidea.digital',
     note: 'Live site'
-  }
+  },
+   {
+    name: 'Thirupati Rice Mill',
+    url: 'https://thirupati-rice-mill-extended.vercel.app',
+    note: 'Live demo'
+  },
 ]
 
 // Placeholder slots so the grid doesn't look sparse with only two logos.
