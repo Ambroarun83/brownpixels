@@ -1,5 +1,7 @@
 import { createApp } from 'vue'
-import './assets/main.css'
 import App from './App.vue'
+import { reveal } from './composables/useReveal.js'
+import './styles/fonts.css'
+import './styles/globals.css'
 
-createApp(App).mount('#app')
+createApp(App).directive('reveal', reveal).mount('#app')
