@@ -1,0 +1,26 @@
+{
+  "name": "Brown Pixels FAQs",
+  "url": "https://brownpixels.in/#faq",
+  "questions": [
+    {
+      "question": "What does Brown Pixels build?",
+      "answer": "Brown Pixels designs and builds business websites, web applications, custom business systems, AI-enabled products and workflow automation. Digital presence and marketing support are also available."
+    },
+    {
+      "question": "Can you build software around our existing process?",
+      "answer": "Yes. Projects are shaped around the people, workflows, data and requirements involved, rather than forcing a business into a generic system."
+    },
+    {
+      "question": "What kinds of businesses do you work with?",
+      "answer": "Brown Pixels works with businesses, startups, professionals and growing companies. The right scope and technology depend on the project."
+    },
+    {
+      "question": "Do you provide AI and automation services?",
+      "answer": "Yes. Services include AI assistants, integrations, API-based AI applications and automation for business workflows where these tools provide practical value."
+    },
+    {
+      "question": "How can I discuss a project?",
+      "answer": "Use the project enquiry form on this page or contact Brown Pixels by email or WhatsApp. Share your goals and a short description of what you need."
+    }
+  ]
+}

@@ -2,6 +2,7 @@
 import { onMounted, onBeforeUnmount, ref } from 'vue'
 import AppIcon from './AppIcon.vue'
 import { onEnterView } from '../composables/useReveal.js'
+import { mediaQuery } from '../composables/mediaQuery.js'
 
 const chips = [
   'Modern web technologies',
@@ -37,7 +38,7 @@ const term = ref(null)
 let stop = null
 let timer = 0
 
-const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+const reduce = mediaQuery('(prefers-reduced-motion: reduce)').matches
 
 onMounted(() => {
   if (reduce) {

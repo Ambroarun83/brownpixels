@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, onBeforeUnmount, ref } from 'vue'
 import AppIcon from './AppIcon.vue'
+import { mediaQuery } from '../composables/mediaQuery.js'
 
 const projects = [
   {
@@ -64,10 +65,10 @@ function srcsetOf(src) {
     src.replace('.jpg', '-1200.jpg') + ' 1200w, ' + src + ' 1440w'
   )
 }
-const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+const reduce = mediaQuery('(prefers-reduced-motion: reduce)').matches
 
-const small = window.matchMedia('(max-width: 940px)')
-const fine = window.matchMedia('(hover: hover) and (pointer: fine)')
+const small = mediaQuery('(max-width: 940px)')
+const fine = mediaQuery('(hover: hover) and (pointer: fine)')
 
 function parallax() {
   const el = root.value

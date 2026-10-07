@@ -13,6 +13,7 @@ import ApproachTimeline from './components/ApproachTimeline.vue'
 import WorkShowcase from './components/WorkShowcase.vue'
 import AudienceGrid from './components/AudienceGrid.vue'
 import AboutStatement from './components/AboutStatement.vue'
+import FaqSection from './components/FaqSection.vue'
 import ContactSection from './components/ContactSection.vue'
 import SiteFooter from './components/SiteFooter.vue'
 import AppIcon from './components/AppIcon.vue'
@@ -31,11 +32,11 @@ const TITLES = {
 }
 
 function parse() {
-  const h = location.hash.slice(1)
+  const h = typeof location === 'undefined' ? '' : location.hash.slice(1)
   return h === 'privacy' || h === 'terms' ? h : 'home'
 }
 
-const route = ref(parse())
+const route = ref('home')
 
 /* the intro curtain holds the hero's entrance until it lifts */
 const booted = ref(false)
@@ -91,6 +92,7 @@ function decorate() {
 }
 
 onMounted(() => {
+  route.value = parse()
   document.title = TITLES[route.value]
   window.addEventListener('hashchange', sync)
   window.addEventListener('scroll', onScroll, { passive: true })
@@ -146,6 +148,7 @@ watch(route, (v) => {
       <ApproachTimeline />
       <AudienceGrid />
       <AboutStatement />
+      <FaqSection />
       <ContactSection />
     </template>
     <LegalView v-else :doc="route" />

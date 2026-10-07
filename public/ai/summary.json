@@ -1,0 +1,20 @@
+{
+  "name": "Brown Pixels",
+  "url": "https://brownpixels.in/",
+  "description": "Brown Pixels designs and builds websites, web applications, business systems, AI-powered solutions and digital experiences around the way a business works.",
+  "type": "Digital products and software company",
+  "languages": ["en"],
+  "contact": {
+    "email": "brownpixels.co@gmail.com",
+    "telephone": "+917502263833",
+    "whatsapp": "https://wa.me/917502263833"
+  },
+  "sameAs": ["https://www.instagram.com/brownpixels.in/"],
+  "pages": {
+    "about": "https://brownpixels.in/#about",
+    "services": "https://brownpixels.in/#services",
+    "work": "https://brownpixels.in/#work",
+    "faq": "https://brownpixels.in/#faq",
+    "contact": "https://brownpixels.in/#contact"
+  }
+}

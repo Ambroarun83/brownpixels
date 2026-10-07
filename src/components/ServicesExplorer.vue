@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, onBeforeUnmount, ref } from 'vue'
 import AppIcon from './AppIcon.vue'
+import { mediaQuery } from '../composables/mediaQuery.js'
 
 const services = [
   {
@@ -60,7 +61,7 @@ const active = ref(0)
 const paused = ref(false)
 let timer = 0
 
-const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+const reduce = mediaQuery('(prefers-reduced-motion: reduce)').matches
 
 function select(i) {
   active.value = i

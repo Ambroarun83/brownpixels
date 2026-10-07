@@ -1,0 +1,33 @@
+# Brown Pixels
+
+> Brown Pixels designs and builds websites, web applications, business systems, AI-powered solutions and digital experiences around the way a business works.
+
+Brown Pixels is a digital products and software company. Work includes custom websites, web applications, internal business software, CRM and ERP systems, AI integrations, workflow automation and digital presence support. Projects are scoped around the client's requirements; technology choices depend on the product.
+
+## Capabilities
+
+- [Websites and web applications](https://brownpixels.in/#services)
+- [Business systems and software](https://brownpixels.in/#services)
+- [AI and automation](https://brownpixels.in/#ai)
+- [Digital presence and growth](https://brownpixels.in/#services)
+
+## About and contact
+
+- [About Brown Pixels](https://brownpixels.in/#about)
+- [Frequently asked questions](https://brownpixels.in/#faq)
+- [Start a project or send an enquiry](https://brownpixels.in/#contact)
+- Email: brownpixels.co@gmail.com
+- WhatsApp: +91 75022 63833
+- Instagram: https://www.instagram.com/brownpixels.in/
+
+## Selected work
+
+- [Leafy Packaging](https://leafy-demo.vercel.app/) — product catalogue website with an interactive 3D bag preview and WhatsApp enquiry flow.
+- [Thirupati Rice Mill](https://thirupati-rice-mill-extended.vercel.app/index.html) — multi-page website with a product catalogue and milling-process walkthrough.
+- [UpLiftIdea](https://upliftidea.in/) — digital marketing website with a work gallery, enquiry flow and content management.
+
+## AI discovery
+
+- [Site summary](https://brownpixels.in/ai/summary.json)
+- [Frequently asked questions](https://brownpixels.in/ai/faq.json)
+- [Service capabilities](https://brownpixels.in/ai/service.json)

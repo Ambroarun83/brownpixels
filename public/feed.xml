@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Brown Pixels</title>
+    <link>https://brownpixels.in/</link>
+    <description>Updates and selected work from Brown Pixels, a digital products and software company.</description>
+    <language>en</language>
+    <lastBuildDate>__BUILD_TIMESTAMP__</lastBuildDate>
+    <item>
+      <title>Brown Pixels services and selected work</title>
+      <link>https://brownpixels.in/#work</link>
+      <guid isPermaLink="false">https://brownpixels.in/#work</guid>
+      <description>Explore Brown Pixels services in websites, web applications, business systems, AI and automation, and digital growth, alongside selected projects.</description>
+    </item>
+  </channel>
+</rss>

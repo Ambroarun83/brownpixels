@@ -24,7 +24,8 @@ npm run preview  # preview the production build
 
 ```
 src/
-├── main.js                     app + global v-reveal directive
+├── main.js                     hydrated Vue app + global v-reveal directive
+├── siteApp.js                  shared client/server app factory
 ├── App.vue                     page composition + hash routing (#privacy / #terms)
 ├── config.js                   contact details (phone, WhatsApp, email, socials)
 ├── composables/useReveal.js    scroll-reveal directive + onEnterView helper
@@ -48,14 +49,26 @@ src/
     ├── WorkShowcase.vue        real projects, parallax + hover reveal
     ├── AudienceGrid.vue        cursor-tracked spotlight cells
     ├── AboutStatement.vue      word-by-word manifesto reveal
+    ├── FaqSection.vue          visible FAQs for visitors and search engines
     ├── ContactSection.vue      validated enquiry form (WhatsApp-first)
     ├── SiteFooter.vue
     ├── LegalView.vue           privacy + terms documents
     └── AppIcon.vue             24×24 inline SVG icon set
 public/
+├── robots.txt                  search and AI crawler access rules
+├── llms.txt                    AI-readable site and content guide
+├── ai/                         summary, FAQ and service discovery JSON
+├── .well-known/ai.txt          AI discovery endpoint index
+├── feed.xml                    RSS feed
+└── sitemap.xml                canonical homepage sitemap
 ├── fonts/                      Inter Tight, Inter, Instrument Serif italic, JetBrains Mono
 └── img/                        logo lockup, mark, favicons, og-image, project screenshots
 ```
+
+`npm run build` builds the client bundle, then server-renders the homepage into `dist/index.html`.
+The content is readable to crawlers before JavaScript runs; the Vue app mounts normally for browser
+interactions after the page loads. The build stamps the page's structured-data `dateModified`, the
+sitemap `lastmod` and the RSS feed's build date.
 
 ## Contact details — `src/config.js`
 
@@ -67,7 +80,7 @@ export const CONFIG = {
   phone:    '917502263833',
   email:    'brownpixels.co@gmail.com',
   social: {
-    instagram: '',                          // ← add your profile URLs
+    instagram: 'https://www.instagram.com/brownpixels.in/',
     linkedin:  '',
     github:    '',
     whatsapp:  'https://wa.me/917502263833'
@@ -86,8 +99,9 @@ icons light up automatically.
 
 **Domain + metadata — `index.html`**
 
-`canonical` and `og:url` currently point at `https://brownpixels.co/` — change them if your domain
-differs. Confirm the title and description, then review `#privacy` / `#terms` with an advisor.
+`canonical` and `og:url` point at `https://brownpixels.in/`. Confirm that this remains the preferred
+domain before publishing. Confirm the title and description, then review `#privacy` / `#terms` with
+an advisor.
 
 ## How the enquiry form works
 

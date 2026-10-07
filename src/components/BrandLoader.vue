@@ -16,6 +16,7 @@
    ============================================================ */
 import { onMounted, onBeforeUnmount, ref } from 'vue'
 import MarkMosaic from './MarkMosaic.vue'
+import { mediaQuery } from '../composables/mediaQuery.js'
 
 const emit = defineEmits(['done'])
 
@@ -23,7 +24,7 @@ const HOLD = 2500   // ms of visible brand animation
 const WIPE = 620    // ms of curtain lift
 const KEY = 'bp-intro-seen'
 
-const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+const reduce = mediaQuery('(prefers-reduced-motion: reduce)').matches
 const skipped = ref(false)
 const out = ref(false)
 const pct = ref(0)

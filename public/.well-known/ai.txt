@@ -1,0 +1,8 @@
+# Brown Pixels AI discovery
+
+Site: https://brownpixels.in/
+LLMs: https://brownpixels.in/llms.txt
+Summary: https://brownpixels.in/ai/summary.json
+FAQ: https://brownpixels.in/ai/faq.json
+Services: https://brownpixels.in/ai/service.json
+Sitemap: https://brownpixels.in/sitemap.xml

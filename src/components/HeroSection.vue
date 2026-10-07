@@ -2,6 +2,7 @@
 import { onMounted, onBeforeUnmount, ref, watch } from 'vue'
 import AppIcon from './AppIcon.vue'
 import RobotHead from './RobotHead.vue'
+import { mediaQuery } from '../composables/mediaQuery.js'
 
 const props = defineProps({
   /* the intro curtain holds the entrance until it lifts */
@@ -12,8 +13,8 @@ const hero = ref(null)
 const ready = ref(false)
 const offscreen = ref(false)
 
-const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches
+const reduce = mediaQuery('(prefers-reduced-motion: reduce)').matches
+const fine = mediaQuery('(hover: hover) and (pointer: fine)').matches
 
 const dots = [
   { a: '#0069fe', b: '#7db6ff' },

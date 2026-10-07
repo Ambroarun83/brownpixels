@@ -1,0 +1,31 @@
+{
+  "provider": {
+    "name": "Brown Pixels",
+    "url": "https://brownpixels.in/",
+    "email": "brownpixels.co@gmail.com",
+    "telephone": "+917502263833"
+  },
+  "services": [
+    {
+      "name": "Websites",
+      "description": "Business websites, corporate sites, product catalogues, landing pages, portfolios and professional profiles."
+    },
+    {
+      "name": "Web applications",
+      "description": "Custom applications shaped around users, workflows, data and business requirements, including portals, booking systems and custom platforms."
+    },
+    {
+      "name": "Business systems",
+      "description": "CRM, ERP, inventory, finance, management dashboards and internal tools for business operations."
+    },
+    {
+      "name": "AI and automation",
+      "description": "AI applications, assistants, integrations and workflow automation where they provide practical value."
+    },
+    {
+      "name": "Digital growth",
+      "description": "Digital presence and visibility support, including Google Business Profile and marketing support."
+    }
+  ],
+  "contactUrl": "https://brownpixels.in/#contact"
+}

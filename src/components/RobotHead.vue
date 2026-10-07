@@ -16,9 +16,10 @@
    forward with a slow autonomous drift.
    ============================================================ */
 import { onMounted, onBeforeUnmount, ref } from 'vue'
+import { mediaQuery } from '../composables/mediaQuery.js'
 
 const root = ref(null)
-const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+const reduce = mediaQuery('(prefers-reduced-motion: reduce)').matches
 
 /* where the head is looking, -1..1 on both axes */
 const look = { x: 0, y: 0 }
