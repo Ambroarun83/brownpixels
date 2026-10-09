@@ -272,7 +272,7 @@ dl, dd { margin: 0; }
 .btn:active { transform: translateY(1px); }
 
 .btn--flame {
-  padding: 0.5em 0.5em 0.5em 1.5em;
+  padding: 1.5em 1.5em 1.5em 1.5em;
   background: linear-gradient(96deg, #0047c4 0%, #0069fe 100%);
   color: #fff;
   font-weight: 650;
