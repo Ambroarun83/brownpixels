@@ -1,7 +1,13 @@
 <script setup>
+import { inject } from 'vue'
 import AppIcon from './AppIcon.vue'
 import { CONFIG, digits, formatPhone, validEmail } from '../config.js'
 import { goTop } from '../composables/scrollToTop.js'
+
+const sitePath = inject('sitePath', '/')
+const isHome = (typeof window === 'undefined' ? sitePath : window.location.pathname) === '/'
+const sectionHref = (hash) => isHome ? hash : '/' + hash
+const legalHref = (hash) => isHome ? hash : '/' + hash
 
 const year = new Date().getFullYear()
 
@@ -82,25 +88,24 @@ const waOK = digits(CONFIG.whatsapp).length >= 8
         <nav class="footer__col" aria-label="Navigate">
           <h4 class="mono">Navigate</h4>
           <ul>
-            <li><a href="#top" @click="goTop($event)">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#ai">AI &amp; automation</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#approach">Approach</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#faq">FAQs</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a :href="sectionHref('#top')" @click="isHome && goTop($event)">Home</a></li>
+            <li><a :href="sectionHref('#services')">Services</a></li>
+            <li><a :href="sectionHref('#ai')">AI &amp; automation</a></li>
+            <li><a :href="sectionHref('#work')">Work</a></li>
+            <li><a :href="sectionHref('#approach')">Approach</a></li>
+            <li><a :href="sectionHref('#about')">About</a></li>
+            <li><a :href="sectionHref('#faq')">FAQs</a></li>
+            <li><a :href="sectionHref('#contact')">Contact</a></li>
           </ul>
         </nav>
 
         <nav class="footer__col" aria-label="Capabilities">
           <h4 class="mono">Capabilities</h4>
           <ul>
-            <li><a href="#services">Websites</a></li>
-            <li><a href="#services">Web applications</a></li>
-            <li><a href="#services">Business systems</a></li>
-            <li><a href="#ai">AI &amp; automation</a></li>
-            <li><a href="#services">Digital growth</a></li>
+            <li><a href="/website-development/">Website development</a></li>
+            <li><a href="/business-software/">Business software</a></li>
+            <li><a href="/ai-solutions/">AI solutions</a></li>
+            <li><a href="/digital-marketing/">Digital marketing</a></li>
           </ul>
         </nav>
       </div>
@@ -108,8 +113,8 @@ const waOK = digits(CONFIG.whatsapp).length >= 8
       <div class="footer__bottom">
         <p class="mono">© {{ year }} Brown Pixels. All rights reserved.</p>
         <nav class="footer__legal" aria-label="Legal">
-          <a href="#privacy">Privacy Policy</a>
-          <a href="#terms">Terms &amp; Conditions</a>
+          <a :href="legalHref('#privacy')">Privacy Policy</a>
+          <a :href="legalHref('#terms')">Terms &amp; Conditions</a>
         </nav>
       </div>
     </div>

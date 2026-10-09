@@ -8,6 +8,7 @@ const services = [
     num: '01',
     id: 'websites',
     title: 'Websites',
+    page: '/website-development/',
     icon: 'web',
     blurb:
       'Modern websites designed to establish trust, explain your business, showcase products or services and generate enquiries.',
@@ -18,6 +19,7 @@ const services = [
     num: '02',
     id: 'apps',
     title: 'Web applications',
+    page: '/business-software/',
     icon: 'app',
     blurb:
       'Custom applications designed around specific users, workflows, data and business requirements.',
@@ -28,6 +30,7 @@ const services = [
     num: '03',
     id: 'systems',
     title: 'Business systems',
+    page: '/business-software/',
     icon: 'layers',
     blurb:
       'Software that helps businesses manage information, operations and everyday workflows.',
@@ -38,6 +41,7 @@ const services = [
     num: '04',
     id: 'ai',
     title: 'AI & automation',
+    page: '/ai-solutions/',
     icon: 'cpu',
     blurb:
       'Modern AI technologies integrated into products and business workflows where they provide practical value.',
@@ -219,6 +223,9 @@ function onKey(e) {
               <p v-if="services[active].note" class="panel__note">
                 <AppIcon name="info" :size="15" />{{ services[active].note }}
               </p>
+              <a v-if="services[active].page" class="link panel__link" :href="services[active].page">
+                Explore {{ services[active].title }}
+              </a>
             </article>
           </Transition>
         </div>
@@ -310,6 +317,7 @@ function onKey(e) {
   letter-spacing: -0.03em;
 }
 .panel__blurb { margin-top: 12px; font-size: 15px; line-height: 1.6; color: var(--ink-soft); max-width: 54ch; }
+.panel__link { position: relative; z-index: 1; margin-top: 20px; }
 
 .swap-enter-active, .swap-leave-active { transition: opacity 0.4s var(--ease-out), transform 0.5s var(--ease-out); }
 .swap-enter-from { opacity: 0; transform: translateY(14px); }

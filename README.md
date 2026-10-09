@@ -1,7 +1,7 @@
-# Brown Pixels — Landing Page (Vue 3 + Vite)
+# Brown Pixels — Vue 3 + Vite
 
-An interaction-led landing page for **Brown Pixels** — digital products, software, AI and digital
-growth. Vue 3 + Vite, no CSS framework, no animation library, no backend.
+An interaction-led website for **Brown Pixels** — digital products, software, AI and digital growth.
+Vue 3 + Vite, no CSS framework, no animation library, no backend.
 
 **Palette:** taken straight off the brand mark — deep navy `#0a162c`, electric blue `#0069fe` and
 ember `#f3610d`. A cinematic navy hero opens into a bright cool-paper site with navy type; electric
@@ -26,7 +26,8 @@ npm run preview  # preview the production build
 src/
 ├── main.js                     hydrated Vue app + global v-reveal directive
 ├── siteApp.js                  shared client/server app factory
-├── App.vue                     page composition + hash routing (#privacy / #terms)
+├── App.vue                     page composition + service routes and legal hash views
+├── servicePages.js             service page content and SEO metadata
 ├── config.js                   contact details (phone, WhatsApp, email, socials)
 ├── composables/useReveal.js    scroll-reveal directive + onEnterView helper
 ├── composables/interactions.js global pointer layer: aura, cursor ring, magnet, tilt
@@ -51,6 +52,7 @@ src/
     ├── AboutStatement.vue      word-by-word manifesto reveal
     ├── FaqSection.vue          visible FAQs for visitors and search engines
     ├── ContactSection.vue      validated enquiry form (WhatsApp-first)
+    ├── ServicePage.vue         server-rendered service page template
     ├── SiteFooter.vue
     ├── LegalView.vue           privacy + terms documents
     └── AppIcon.vue             24×24 inline SVG icon set
@@ -60,15 +62,19 @@ public/
 ├── ai/                         summary, FAQ and service discovery JSON
 ├── .well-known/ai.txt          AI discovery endpoint index
 ├── feed.xml                    RSS feed
-└── sitemap.xml                canonical homepage sitemap
+└── sitemap.xml                canonical homepage and service page sitemap
 ├── fonts/                      Inter Tight, Inter, Instrument Serif italic, JetBrains Mono
 └── img/                        logo lockup, mark, favicons, og-image, project screenshots
 ```
 
-`npm run build` builds the client bundle, then server-renders the homepage into `dist/index.html`.
-The content is readable to crawlers before JavaScript runs; the Vue app mounts normally for browser
-interactions after the page loads. The build stamps the page's structured-data `dateModified`, the
-sitemap `lastmod` and the RSS feed's build date.
+`npm run build` builds the client bundle, then server-renders the homepage and each service page into
+static HTML. The content and route-specific metadata are readable to crawlers before JavaScript runs;
+the Vue app mounts normally for browser interactions after the page loads. The build writes
+`dist/website-development/index.html`, `dist/business-software/index.html`,
+`dist/ai-solutions/index.html` and `dist/digital-marketing/index.html`, so direct visits and refreshes
+work on static hosts that serve directory index files. No SPA rewrite is required for these routes.
+The build stamps structured-data
+`dateModified`, sitemap `lastmod` and the RSS feed's build date.
 
 ## Contact details — `src/config.js`
 

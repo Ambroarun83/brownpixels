@@ -6,10 +6,10 @@ Brown Pixels is a digital products and software company. Work includes custom we
 
 ## Capabilities
 
-- [Websites and web applications](https://brownpixels.in/#services)
-- [Business systems and software](https://brownpixels.in/#services)
-- [AI and automation](https://brownpixels.in/#ai)
-- [Digital presence and growth](https://brownpixels.in/#services)
+- [Website development](https://brownpixels.in/website-development/)
+- [Business software and web applications](https://brownpixels.in/business-software/)
+- [AI and automation](https://brownpixels.in/ai-solutions/)
+- [Digital marketing and online presence support](https://brownpixels.in/digital-marketing/)
 
 ## About and contact
 
@@ -25,6 +25,10 @@ Brown Pixels is a digital products and software company. Work includes custom we
 - [Leafy Packaging](https://leafy-demo.vercel.app/) — product catalogue website with an interactive 3D bag preview and WhatsApp enquiry flow.
 - [Thirupati Rice Mill](https://thirupati-rice-mill-extended.vercel.app/index.html) — multi-page website with a product catalogue and milling-process walkthrough.
 - [UpLiftIdea](https://upliftidea.in/) — digital marketing website with a work gallery, enquiry flow and content management.
+
+## Service area
+
+Brown Pixels is based in Coimbatore and can discuss projects with businesses in Karur, Trichy and other cities. Initial enquiries can be made online; no additional office locations are claimed.
 
 ## AI discovery
 

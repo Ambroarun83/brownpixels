@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, onBeforeUnmount, ref } from 'vue'
+import { inject, onMounted, onBeforeUnmount, ref } from 'vue'
 import AppIcon from './AppIcon.vue'
 import { CONFIG, digits } from '../config.js'
 import { goTop } from '../composables/scrollToTop.js'
@@ -13,6 +13,10 @@ const links = [
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' }
 ]
+
+const sitePath = inject('sitePath', '/')
+const isHome = (typeof window === 'undefined' ? sitePath : window.location.pathname) === '/'
+const sectionHref = (hash) => isHome ? hash : '/' + hash
 
 const solid = ref(false)
 const open = ref(false)
@@ -50,7 +54,7 @@ onBeforeUnmount(() => {
 })
 
 function onNav(link, e) {
-  if (link.href === '#top') goTop(e)
+  if (link.href === '#top' && isHome) goTop(e)
   close()
 }
 
@@ -67,7 +71,7 @@ function toggle() {
 <template>
   <header class="nav" :class="{ 'is-solid': solid, 'theme-dark': !solid }">
     <div class="nav__inner">
-      <a class="nav__brand" href="#top" @click="close" aria-label="Brown Pixels — home">
+      <a class="nav__brand" :href="sectionHref('#top')" @click="close" aria-label="Brown Pixels — home">
         <img class="nav__logo nav__logo--dark" src="/img/logo-lockup-dark.png"
              srcset="/img/logo-lockup-dark.png 1x, /img/logo-lockup-dark@2x.png 2x" alt="Brown Pixels" width="148" height="50" />
         <img class="nav__logo nav__logo--light" src="/img/logo-lockup-light.png"
@@ -78,7 +82,7 @@ function toggle() {
         <ul>
           <li v-for="link in links" :key="link.href">
             <a
-            :href="link.href"
+            :href="sectionHref(link.href)"
             :class="{ 'is-active': active === link.href }"
             @click="onNav(link, $event)"
           >
@@ -100,7 +104,7 @@ function toggle() {
         >
           <AppIcon name="whatsapp" :size="18" />
         </a>
-        <a class="btn btn--light btn--sm nav__cta" href="#contact" @click="close">Start a project</a>
+        <a class="btn btn--light btn--sm nav__cta" :href="sectionHref('#contact')" @click="close">Start a project</a>
         <button
           class="nav__burger"
           type="button"
@@ -117,11 +121,11 @@ function toggle() {
       <div v-if="open" class="nav__sheet">
         <ul>
           <li v-for="link in links" :key="link.href">
-            <a :href="link.href" @click="onNav(link, $event)">{{ link.label }}</a>
+            <a :href="sectionHref(link.href)" @click="onNav(link, $event)">{{ link.label }}</a>
           </li>
         </ul>
         <div class="nav__sheet-foot">
-          <a class="btn btn--flame btn--block" href="#contact" @click="close">
+          <a class="btn btn--flame btn--block" :href="sectionHref('#contact')" @click="close">
             Start a project
             <span class="btn__dot"><AppIcon name="arrow" /></span>
           </a>

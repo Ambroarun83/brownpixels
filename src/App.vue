@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, onBeforeUnmount, nextTick, ref, watch } from 'vue'
+import { inject, onMounted, onBeforeUnmount, nextTick, ref, watch } from 'vue'
 import BrandLoader from './components/BrandLoader.vue'
 import SiteNav from './components/SiteNav.vue'
 import HeroSection from './components/HeroSection.vue'
@@ -21,22 +21,44 @@ import { CONFIG, digits } from './config.js'
 import LegalView from './components/LegalView.vue'
 import { startInteractions } from './composables/interactions.js'
 import { splitHeadings } from './composables/splitText.js'
+import ServicePage from './components/ServicePage.vue'
+import { SERVICE_PAGES } from './servicePages.js'
 
-/* Minimal hash view switch — the site itself is one page; #privacy and
-   #terms swap in a document view. Anchors like #services still behave
-   as ordinary in-page links. */
+const initialPath = inject('sitePath', '/')
 const TITLES = {
-  home: 'Brown Pixels — We turn ideas into software.',
+  home: 'Brown Pixels | Website & Software Development.',
   privacy: 'Privacy Policy — Brown Pixels',
-  terms: 'Terms & Conditions — Brown Pixels'
+  terms: 'Terms & Conditions — Brown Pixels',
+  'not-found': 'Page not found | Brown Pixels'
+}
+
+function routeForPath(path) {
+  const normalized = path.replace(/\/+$/, '') || '/'
+  if (normalized === '/') return 'home'
+  return Object.keys(SERVICE_PAGES).find((key) => SERVICE_PAGES[key].path.replace(/\/$/, '') === normalized) || 'not-found'
 }
 
 function parse() {
-  const h = typeof location === 'undefined' ? '' : location.hash.slice(1)
-  return h === 'privacy' || h === 'terms' ? h : 'home'
+  const path = typeof location === 'undefined' ? initialPath : location.pathname
+  const page = routeForPath(path)
+  const hash = typeof location === 'undefined' ? '' : location.hash.slice(1)
+  return page === 'home' && (hash === 'privacy' || hash === 'terms') ? hash : page
 }
 
-const route = ref('home')
+const route = ref(routeForPath(initialPath))
+const HOME_DESCRIPTION =
+  'Brown Pixels builds professional websites, custom web applications, business software and AI-powered solutions for businesses.'
+
+function syncHead(page) {
+  document.title = SERVICE_PAGES[page]?.title || TITLES[page] || TITLES.home
+  const robots = document.querySelector('meta[name="robots"]')
+  if (robots) robots.content = page === 'privacy' || page === 'terms' || page === 'not-found' ? 'noindex, follow' : 'index, follow'
+
+  const description = document.querySelector('meta[name="description"]')
+  const canonical = document.querySelector('link[rel="canonical"]')
+  if (description) description.content = SERVICE_PAGES[page]?.description || HOME_DESCRIPTION
+  if (canonical) canonical.href = 'https://brownpixels.in' + (SERVICE_PAGES[page]?.path || '/')
+}
 
 /* the intro curtain holds the hero's entrance until it lifts */
 const booted = ref(false)
@@ -54,7 +76,7 @@ async function sync() {
   const next = parse()
   const prev = route.value
   route.value = next
-  document.title = TITLES[next]
+  syncHead(next)
   if (next === prev) return
 
   if (next !== 'home') {
@@ -93,8 +115,9 @@ function decorate() {
 
 onMounted(() => {
   route.value = parse()
-  document.title = TITLES[route.value]
+  syncHead(route.value)
   window.addEventListener('hashchange', sync)
+  window.addEventListener('popstate', sync)
   window.addEventListener('scroll', onScroll, { passive: true })
   onScroll()
   requestAnimationFrame(decorate)
@@ -110,13 +133,14 @@ onMounted(() => {
 })
 onBeforeUnmount(() => {
   window.removeEventListener('hashchange', sync)
+  window.removeEventListener('popstate', sync)
   window.removeEventListener('scroll', onScroll)
   if (contactIO) contactIO.disconnect()
   if (stopInteractions) stopInteractions()
 })
 
 watch(route, (v) => {
-  document.title = TITLES[v]
+  syncHead(v)
 })
 </script>
 
@@ -151,7 +175,13 @@ watch(route, (v) => {
       <FaqSection />
       <ContactSection />
     </template>
-    <LegalView v-else :doc="route" />
+    <ServicePage v-else-if="SERVICE_PAGES[route]" :page="route" />
+    <LegalView v-else-if="route === 'privacy' || route === 'terms'" :doc="route" />
+    <section v-else class="section shell not-found">
+      <p class="eyebrow">404 / Not found</p>
+      <h1 class="display">This page could not be found.</h1>
+      <a class="link" href="/">Return to Brown Pixels home</a>
+    </section>
   </main>
 
   <SiteFooter />

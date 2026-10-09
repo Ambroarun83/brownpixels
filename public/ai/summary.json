@@ -13,6 +13,10 @@
   "pages": {
     "about": "https://brownpixels.in/#about",
     "services": "https://brownpixels.in/#services",
+    "websiteDevelopment": "https://brownpixels.in/website-development/",
+    "businessSoftware": "https://brownpixels.in/business-software/",
+    "aiSolutions": "https://brownpixels.in/ai-solutions/",
+    "digitalMarketing": "https://brownpixels.in/digital-marketing/",
     "work": "https://brownpixels.in/#work",
     "faq": "https://brownpixels.in/#faq",
     "contact": "https://brownpixels.in/#contact"

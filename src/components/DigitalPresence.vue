@@ -80,11 +80,22 @@ const marketing = [
           the work properly and report honestly.
         </span>
       </p>
+      <a class="link digital-presence__link" href="/digital-marketing/">
+        Explore digital marketing support
+        <AppIcon name="arrow" :size="16" />
+      </a>
+      <p class="lede digital-presence__area">
+        Brown Pixels is based in Coimbatore and can discuss projects with businesses in Karur, Trichy
+        and other cities. Start with an online enquiry; project scope and delivery responsibilities
+        are agreed before work begins.
+      </p>
     </div>
   </section>
 </template>
 
 <style scoped>
+.digital-presence__link { margin-top: 24px; }
+.digital-presence__area { margin-top: 22px; }
 .grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
