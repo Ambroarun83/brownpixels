@@ -50,13 +50,13 @@ function tick(now) {
 }
 
 onMounted(() => {
-  // let seen = false
-  // try { seen = sessionStorage.getItem(KEY) === '1' } catch (e) { /* private mode */ }
+  let seen = false
+  try { seen = sessionStorage.getItem(KEY) === '1' } catch (e) { /* private mode */ }
 
-  // if (seen) {
-  //   release()
-  //   return
-  // }
+  if (seen) {
+    release()
+    return
+  }
 
   document.documentElement.classList.add('is-booting')
   document.body.style.overflow = 'hidden'

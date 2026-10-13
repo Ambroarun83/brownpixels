@@ -2,12 +2,16 @@
 import { computed } from 'vue'
 import { CONFIG, digits, validEmail } from '../config.js'
 import { SERVICE_LINK_LABELS, SERVICE_PAGES } from '../servicePages.js'
+import { INSIGHT_ARTICLES } from '../insights.js'
 
 const props = defineProps({
   page: { type: String, required: true }
 })
 
 const content = computed(() => SERVICE_PAGES[props.page])
+const relatedArticles = computed(() =>
+  INSIGHT_ARTICLES.filter((article) => article.services.includes(props.page))
+)
 const whatsapp = computed(() => 'https://wa.me/' + digits(CONFIG.whatsapp))
 const email = computed(() => 'mailto:' + CONFIG.email)
 const emailAvailable = validEmail(CONFIG.email)
@@ -116,6 +120,14 @@ const emailAvailable = validEmail(CONFIG.email)
           <a class="link" :href="SERVICE_PAGES[related].path">{{ SERVICE_LINK_LABELS[related] }}</a>
         </li>
         <li><a class="link" href="/">Brown Pixels home</a></li>
+      </ul>
+    </nav>
+    <nav v-if="relatedArticles.length" class="section section--tight service-page__related shell" aria-label="Related Insights">
+      <h2 class="mono">Useful guides</h2>
+      <ul>
+        <li v-for="article in relatedArticles" :key="article.slug">
+          <a class="link" :href="article.path">{{ article.title }}</a>
+        </li>
       </ul>
     </nav>
   </article>

@@ -23,6 +23,10 @@ import { startInteractions } from './composables/interactions.js'
 import { splitHeadings } from './composables/splitText.js'
 import ServicePage from './components/ServicePage.vue'
 import { SERVICE_PAGES } from './servicePages.js'
+import InsightsIndex from './components/InsightsIndex.vue'
+import InsightArticle from './components/InsightArticle.vue'
+import InsightsPreview from './components/InsightsPreview.vue'
+import { INSIGHTS_PAGE, INSIGHT_ARTICLES } from './insights.js'
 
 const initialPath = inject('sitePath', '/')
 const TITLES = {
@@ -35,7 +39,11 @@ const TITLES = {
 function routeForPath(path) {
   const normalized = path.replace(/\/+$/, '') || '/'
   if (normalized === '/') return 'home'
-  return Object.keys(SERVICE_PAGES).find((key) => SERVICE_PAGES[key].path.replace(/\/$/, '') === normalized) || 'not-found'
+  const service = Object.keys(SERVICE_PAGES).find((key) => SERVICE_PAGES[key].path.replace(/\/$/, '') === normalized)
+  if (service) return service
+  if (INSIGHTS_PAGE.path.replace(/\/$/, '') === normalized) return 'insights-index'
+  const article = INSIGHT_ARTICLES.find((item) => item.path.replace(/\/$/, '') === normalized)
+  return article ? `insight:${article.slug}` : 'not-found'
 }
 
 function parse() {
@@ -49,15 +57,26 @@ const route = ref(routeForPath(initialPath))
 const HOME_DESCRIPTION =
   'Coimbatore-based Brown Pixels builds responsive business websites, custom web apps, ERP and CRM workflows, and practical AI automation for businesses across Tamil Nadu.'
 
+function metadataForRoute(page) {
+  if (SERVICE_PAGES[page]) return SERVICE_PAGES[page]
+  if (page === 'insights-index') return INSIGHTS_PAGE
+  if (page.startsWith('insight:')) {
+    const slug = page.slice('insight:'.length)
+    return INSIGHT_ARTICLES.find((article) => article.slug === slug)
+  }
+  return null
+}
+
 function syncHead(page) {
-  document.title = SERVICE_PAGES[page]?.title || TITLES[page] || TITLES.home
+  const metadata = metadataForRoute(page)
+  document.title = metadata?.metaTitle || metadata?.title || TITLES[page] || TITLES.home
   const robots = document.querySelector('meta[name="robots"]')
   if (robots) robots.content = page === 'privacy' || page === 'terms' || page === 'not-found' ? 'noindex, follow' : 'index, follow'
 
   const description = document.querySelector('meta[name="description"]')
   const canonical = document.querySelector('link[rel="canonical"]')
-  if (description) description.content = SERVICE_PAGES[page]?.description || HOME_DESCRIPTION
-  if (canonical) canonical.href = 'https://brownpixels.in' + (SERVICE_PAGES[page]?.path || '/')
+  if (description) description.content = metadata?.description || HOME_DESCRIPTION
+  if (canonical) canonical.href = 'https://brownpixels.in' + (metadata?.path || '/')
 }
 
 /* the intro curtain holds the hero's entrance until it lifts */
@@ -172,10 +191,13 @@ watch(route, (v) => {
       <ApproachTimeline />
       <AudienceGrid />
       <AboutStatement />
+      <InsightsPreview />
       <FaqSection />
       <ContactSection />
     </template>
     <ServicePage v-else-if="SERVICE_PAGES[route]" :page="route" />
+    <InsightsIndex v-else-if="route === 'insights-index'" />
+    <InsightArticle v-else-if="route.startsWith('insight:')" :slug="route.slice('insight:'.length)" />
     <LegalView v-else-if="route === 'privacy' || route === 'terms'" :doc="route" />
     <section v-else class="section shell not-found">
       <p class="eyebrow">404 / Not found</p>

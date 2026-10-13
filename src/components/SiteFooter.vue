@@ -95,6 +95,7 @@ const waOK = digits(CONFIG.whatsapp).length >= 8
             <li><a :href="sectionHref('#approach')">Approach</a></li>
             <li><a :href="sectionHref('#about')">About</a></li>
             <li><a :href="sectionHref('#faq')">FAQs</a></li>
+            <li><a href="/insights/">Insights</a></li>
             <li><a :href="sectionHref('#contact')">Contact</a></li>
           </ul>
         </nav>

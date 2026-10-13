@@ -11,12 +11,15 @@ const links = [
   { label: 'AI', href: '#ai' },
   { label: 'Approach', href: '#approach' },
   { label: 'About', href: '#about' },
+  { label: 'Insights', href: '/insights/' },
   { label: 'Contact', href: '#contact' }
 ]
 
 const sitePath = inject('sitePath', '/')
 const isHome = (typeof window === 'undefined' ? sitePath : window.location.pathname) === '/'
+const isInsights = (typeof window === 'undefined' ? sitePath : window.location.pathname).startsWith('/insights/')
 const sectionHref = (hash) => isHome ? hash : '/' + hash
+const targetHref = (href) => href.startsWith('/') ? href : sectionHref(href)
 
 const solid = ref(false)
 const open = ref(false)
@@ -34,7 +37,7 @@ onMounted(() => {
   onScroll()
   window.addEventListener('scroll', onScroll, { passive: true })
 
-  const sections = links.map((l) => document.querySelector(l.href)).filter(Boolean)
+  const sections = links.filter((link) => link.href.startsWith('#')).map((l) => document.querySelector(l.href)).filter(Boolean)
   if ('IntersectionObserver' in window && sections.length) {
     io = new IntersectionObserver(
       (entries) => {
@@ -82,8 +85,8 @@ function toggle() {
         <ul>
           <li v-for="link in links" :key="link.href">
             <a
-            :href="sectionHref(link.href)"
-            :class="{ 'is-active': active === link.href }"
+            :href="targetHref(link.href)"
+            :class="{ 'is-active': active === link.href || (link.href === '/insights/' && isInsights) }"
             @click="onNav(link, $event)"
           >
               {{ link.label }}
@@ -121,7 +124,7 @@ function toggle() {
       <div v-if="open" class="nav__sheet">
         <ul>
           <li v-for="link in links" :key="link.href">
-            <a :href="sectionHref(link.href)" @click="onNav(link, $event)">{{ link.label }}</a>
+            <a :href="targetHref(link.href)" @click="onNav(link, $event)">{{ link.label }}</a>
           </li>
         </ul>
         <div class="nav__sheet-foot">

@@ -28,6 +28,7 @@ src/
 ├── siteApp.js                  shared client/server app factory
 ├── App.vue                     page composition + service routes and legal hash views
 ├── servicePages.js             service page content and SEO metadata
+├── insights.js                 Insights article registry and structured article content
 ├── config.js                   contact details (phone, WhatsApp, email, socials)
 ├── composables/useReveal.js    scroll-reveal directive + onEnterView helper
 ├── composables/interactions.js global pointer layer: aura, cursor ring, magnet, tilt
@@ -53,6 +54,9 @@ src/
     ├── FaqSection.vue          visible FAQs for visitors and search engines
     ├── ContactSection.vue      validated enquiry form (WhatsApp-first)
     ├── ServicePage.vue         server-rendered service page template
+    ├── InsightsIndex.vue       Insights listing page
+    ├── InsightsPreview.vue     selected article links on the homepage
+    ├── InsightArticle.vue      reusable server-rendered article template
     ├── SiteFooter.vue
     ├── LegalView.vue           privacy + terms documents
     └── AppIcon.vue             24×24 inline SVG icon set
@@ -62,7 +66,7 @@ public/
 ├── ai/                         summary, FAQ and service discovery JSON
 ├── .well-known/ai.txt          AI discovery endpoint index
 ├── feed.xml                    RSS feed
-└── sitemap.xml                canonical homepage and service page sitemap
+└── sitemap.xml                canonical sitemap extended with Insights routes at build time
 ├── fonts/                      Inter Tight, Inter, Instrument Serif italic, JetBrains Mono
 └── img/                        logo lockup, mark, favicons, og-image, project screenshots
 ```
@@ -71,8 +75,10 @@ public/
 static HTML. The content and route-specific metadata are readable to crawlers before JavaScript runs;
 the Vue app mounts normally for browser interactions after the page loads. The build writes
 `dist/website-development/index.html`, `dist/business-software/index.html`,
-`dist/ai-solutions/index.html` and `dist/digital-marketing/index.html`, so direct visits and refreshes
-work on static hosts that serve directory index files. No SPA rewrite is required for these routes.
+`dist/ai-solutions/index.html`, `dist/digital-marketing/index.html`, the Insights listing and every
+article registered in `src/insights.js`, so direct visits and refreshes work on static hosts that
+serve directory index files. No SPA rewrite is required for these routes. Adding a published article
+to the registry adds its prerendered route and canonical URL to the generated sitemap.
 The build stamps structured-data
 `dateModified`, sitemap `lastmod` and the RSS feed's build date.
 

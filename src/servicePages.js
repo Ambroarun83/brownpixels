@@ -3,7 +3,7 @@ export const SERVICE_PAGES = {
     path: '/website-development/',
     title: 'Website Design & Development in Coimbatore | Brown Pixels',
     description:
-      'Coimbatore-based Brown Pixels designs responsive business websites, landing pages, product catalogues and portfolios around your customers and goals.',
+      'Coimbatore-based Brown Pixels builds responsive business websites, landing pages and catalogues, and discusses website projects in Karur.',
     heading: 'Website design and development built around your business.',
     capabilitiesHeading: 'Business websites, catalogues and useful custom features.',
     intro:
@@ -30,7 +30,7 @@ export const SERVICE_PAGES = {
     },
     serviceAreaHeading: 'Based in Coimbatore, working across Tamil Nadu.',
     serviceArea:
-      'Brown Pixels is based in Coimbatore and can discuss website projects with businesses in Karur, Trichy and other suitable locations, starting with an online enquiry. The Thirupati Rice Mill website above is a verified Karur portfolio example; it does not imply a branch office.',
+      'Brown Pixels is based in Coimbatore. Businesses looking for website design or website development in Karur can discuss a project with us online; the Thirupati Rice Mill website above is a verified Karur portfolio example, not a claim of a branch office. We can also discuss projects with businesses in Trichy and other suitable locations.',
     related: ['business-software', 'ai-solutions']
   },
   'business-software': {
@@ -86,7 +86,7 @@ export const SERVICE_PAGES = {
     path: '/digital-marketing/',
     title: 'Digital Marketing & Google Business Profile Support | Brown Pixels',
     description:
-      'Get scoped Google Business Profile and social content support from Brown Pixels, with delivery responsibilities agreed for each project.',
+      'Coimbatore-based Brown Pixels offers scoped Google Business Profile and social content support, with online project discussions for Karur businesses.',
     heading: 'Digital marketing support, scoped around your business.',
     capabilitiesHeading: 'Google Business Profile and social content support.',
     intro:
@@ -105,7 +105,7 @@ export const SERVICE_PAGES = {
     contact:
       'Share your business location, the online profiles or channels you use and the support you are looking for. We can discuss a suitable scope and explain who would deliver each part before you decide.',
     serviceArea:
-      'Brown Pixels is based in Coimbatore and can discuss digital projects with businesses in Karur, Trichy and other cities. Initial enquiries and project discussions can take place online. No branch office or in-person meeting availability is implied; please ask if an in-person meeting is important to your project.',
+      'Brown Pixels is based in Coimbatore. Businesses looking for digital marketing support in Karur can enquire about Google Business Profile and selected social or content work; project discussions can take place online. Work may be delivered directly by Brown Pixels or with a marketing partner, with responsibilities agreed before it starts. We can also discuss projects with businesses in Trichy and elsewhere; no branch office is implied.',
     serviceAreaHeading: 'Coimbatore-based, with online project discussions.',
     related: ['website-development', 'business-software', 'ai-solutions']
   }
