@@ -86,7 +86,7 @@ const waOK = digits(CONFIG.whatsapp).length >= 8
         </div>
 
         <nav class="footer__col" aria-label="Navigate">
-          <h4 class="mono">Navigate</h4>
+          <h2 class="mono">Navigate</h2>
           <ul>
             <li><a :href="sectionHref('#top')" @click="isHome && goTop($event)">Home</a></li>
             <li><a :href="sectionHref('#services')">Services</a></li>
@@ -100,7 +100,7 @@ const waOK = digits(CONFIG.whatsapp).length >= 8
         </nav>
 
         <nav class="footer__col" aria-label="Capabilities">
-          <h4 class="mono">Capabilities</h4>
+          <h2 class="mono">Capabilities</h2>
           <ul>
             <li><a href="/website-development/">Website development</a></li>
             <li><a href="/business-software/">Business software</a></li>
@@ -177,7 +177,7 @@ const waOK = digits(CONFIG.whatsapp).length >= 8
   transform: translateY(-2px);
 }
 
-.footer__col h4 { color: var(--ink-faint); font-weight: 400; margin-bottom: 18px; }
+.footer__col h2 { color: var(--ink-faint); font-weight: 400; margin-bottom: 18px; }
 .footer__col ul { display: grid; gap: 4px; }
 .footer__col a {
   padding: 6px 0;

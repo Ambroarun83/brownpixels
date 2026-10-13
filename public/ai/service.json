@@ -7,26 +7,32 @@
   },
   "services": [
     {
-      "name": "Websites",
-      "description": "Business websites, corporate sites, product catalogues, landing pages, portfolios and professional profiles."
+      "name": "Website design and development",
+      "description": "Responsive business and corporate websites, product catalogues, landing pages, portfolios and custom website functionality.",
+      "url": "https://brownpixels.in/website-development/"
     },
     {
       "name": "Web applications",
-      "description": "Custom applications shaped around users, workflows, data and business requirements, including portals, booking systems and custom platforms."
+      "description": "Custom applications shaped around users, workflows, data and business requirements, including portals, booking systems and custom platforms.",
+      "url": "https://brownpixels.in/business-software/"
     },
     {
-      "name": "Business systems",
-      "description": "CRM, ERP, inventory, finance, management dashboards and internal tools for business operations."
+      "name": "Custom ERP, CRM and business systems",
+      "description": "Custom ERP and CRM workflows, internal tools, business portals, reporting and integrations scoped around business processes.",
+      "url": "https://brownpixels.in/business-software/"
     },
     {
       "name": "AI and automation",
-      "description": "AI applications, assistants, integrations and workflow automation where they provide practical value."
+      "description": "AI assistants, chatbot experiences and workflow automation scoped around a practical task, available data, review needs and integrations.",
+      "url": "https://brownpixels.in/ai-solutions/"
     },
     {
-      "name": "Digital growth",
-      "description": "Digital presence and visibility support, including Google Business Profile, social content, content planning and campaign support. Delivery is scoped per engagement and may include marketing-partner support.",
+      "name": "Digital marketing support",
+      "description": "Google Business Profile and social content support, with deliverables and whether work is delivered directly or with a marketing partner agreed per project.",
       "url": "https://brownpixels.in/digital-marketing/"
     }
   ],
+  "base": "Coimbatore, Tamil Nadu",
+  "serviceArea": "Projects can be discussed with businesses in Karur, Trichy and other suitable locations; no additional office locations are claimed.",
   "contactUrl": "https://brownpixels.in/#contact"
 }

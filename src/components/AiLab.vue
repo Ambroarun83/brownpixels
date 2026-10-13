@@ -2,10 +2,7 @@
 import { ref } from 'vue'
 import AppIcon from './AppIcon.vue'
 
-/* ------------------------------------------------------------------
-   What clients can actually build with AI — by business area.
-   Every item is a real, deliverable build (not a vague promise).
-   ------------------------------------------------------------------ */
+/* Examples of AI and automation work to assess by business area. */
 const areas = [
   {
     id: 'sales',
@@ -14,12 +11,12 @@ const areas = [
     builds: [
       {
         title: 'AI enquiry assistant',
-        copy: 'Answers product, pricing and availability questions on your website and WhatsApp — and hands over to a person the moment it should.',
+        copy: 'An assistant could answer questions from approved product information and hand off to a person where the workflow requires it.',
         needs: 'Your catalogue, price list and FAQs'
       },
       {
         title: 'Lead qualification & routing',
-        copy: 'Reads each enquiry, scores it, adds a short summary and sends it to the right person or branch.',
+        copy: 'A scoped workflow could classify enquiries, prepare a summary and route them using agreed rules and available data.',
         needs: 'Where enquiries arrive today'
       },
       {
@@ -29,8 +26,8 @@ const areas = [
       },
       {
         title: 'Follow-up that knows when to stop',
-        copy: 'Automatic reminders and nudges that pause the second a customer replies.',
-        needs: 'Your follow-up sequence'
+        copy: 'Scheduled reminders can follow agreed stop rules when reply events are available from the connected channel.',
+        needs: 'Your follow-up sequence and channel access'
       }
     ]
   },
@@ -41,7 +38,7 @@ const areas = [
     builds: [
       {
         title: 'Support assistant on your knowledge',
-        copy: 'Trained on your manuals, policies and past tickets so answers match how your business actually works.',
+        copy: 'An assistant can use approved manuals, policies or ticket material as references, with response quality checked against real questions.',
         needs: 'Existing FAQs, docs or ticket history'
       },
       {
@@ -51,13 +48,13 @@ const areas = [
       },
       {
         title: '"Where is my order?" answered automatically',
-        copy: 'Looks up real order or booking status in your system and replies instantly on web or WhatsApp.',
+        copy: 'A connected workflow could retrieve order or booking status and prepare a response, subject to data access and review requirements.',
         needs: 'Access to order/booking data'
       },
       {
         title: 'Replies in your customer’s language',
-        copy: 'English, Tamil and other languages, with your terminology preserved.',
-        needs: 'Sample conversations'
+        copy: 'Language support can be evaluated with sample conversations and reviewed for terminology, accuracy and handoff needs.',
+        needs: 'Sample conversations and preferred languages'
       }
     ]
   },
@@ -68,7 +65,7 @@ const areas = [
     builds: [
       {
         title: 'Documents into data',
-        copy: 'Invoices, purchase orders, delivery notes and forms read automatically and written straight into your system.',
+        copy: 'A workflow could extract fields from invoices, orders or forms for review before they are entered into a connected system.',
         needs: '20–30 sample documents'
       },
       {
@@ -149,7 +146,7 @@ const areas = [
     builds: [
       {
         title: 'Stock forecasting & reorder alerts',
-        copy: 'Learns your consumption patterns and warns you before a stock-out, not after.',
+        copy: 'Historical inventory data can be assessed for useful reorder alerts or planning estimates before any rollout.',
         needs: 'Sales or issue history'
       },
       {
@@ -163,9 +160,9 @@ const areas = [
         needs: 'Your report format'
       },
       {
-        title: 'WhatsApp bot for field teams',
-        copy: 'Updates, job status and queries handled in the app your team already uses.',
-        needs: 'WhatsApp Business number'
+        title: 'WhatsApp workflow for field teams',
+        copy: 'Field updates or job queries could be handled through a suitable messaging integration, subject to account setup, platform access and permissions.',
+        needs: 'WhatsApp Business account details and platform access'
       }
     ]
   }
@@ -200,8 +197,8 @@ const flow = ref({ t: 0, s: 0, a: 0 })
 const how = [
   { n: '01', t: 'Find the work', c: 'We map where time actually goes and pick the jobs worth automating.' },
   { n: '02', t: 'Pilot small', c: 'One narrow flow, real data, measured against how you do it today.' },
-  { n: '03', t: 'Wire it in', c: 'Connected to your CRM, ERP, sheets or WhatsApp — not a separate toy.' },
-  { n: '04', t: 'Hand it over', c: 'Your team trained, with clear limits on what the AI may decide.' },
+  { n: '03', t: 'Wire it in', c: 'Integrations depend on confirmed access, platform limits and agreed scope.' },
+  { n: '04', t: 'Hand it over', c: 'A clear handover with limits on what the AI may decide.' },
   { n: '05', t: 'Scale what worked', c: 'Extend to the next flow once the first one earns its place.' }
 ]
 </script>
@@ -221,13 +218,17 @@ const how = [
         </div>
         <div>
           <p class="lede">
-            Not every problem needs AI. We find the places where it removes real work — answering the
-            same questions, retyping documents, chasing updates, digging through files — and build
-            those into the systems you already run.
+            Not every problem needs AI. We assess where it may help with repeated questions, document
+            handling, updates or finding information, then scope a practical approach around your
+            existing workflow.
           </p>
           <p class="ai__promise">
             <AppIcon name="shield" :size="16" />
-            <span>If a simple rule or integration does the job better and cheaper, we’ll say so.</span>
+            <span>
+              These are examples to explore, not off-the-shelf promises. Feasibility, data handling,
+              accuracy, human review, platform access and third-party costs are checked before scope
+              is agreed. If a simpler rule or integration is a better fit, we’ll say so.
+            </span>
           </p>
         </div>
       </div>
@@ -254,7 +255,7 @@ const how = [
             <div :key="areas[active].id" class="lab__inner">
               <p class="lab__kicker mono">
                 <AppIcon name="cpu" :size="14" />
-                What we can build for {{ areas[active].label.toLowerCase() }}
+                Ideas to assess for {{ areas[active].label.toLowerCase() }}
               </p>
               <ul class="builds">
                 <li v-for="b in areas[active].builds" :key="b.title">
@@ -339,8 +340,9 @@ const how = [
         <p class="pipe__note">
           <AppIcon name="info" :size="15" />
           <span>
-            Every flow ships with a human check point where it matters — approval before anything is
-            sent to a customer or written into your accounts.
+            This is an illustrative flow, not a live integration. Connected actions depend on
+            platform access and agreed scope; customer messages or account changes can require human
+            approval.
           </span>
         </p>
       </div>

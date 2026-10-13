@@ -21,6 +21,21 @@ const faqs = [
       'Yes. Services include AI assistants, integrations, API-based AI applications and automation for business workflows where these tools provide practical value.'
   },
   {
+    question: 'What business software can Brown Pixels build?',
+    answer:
+      'Brown Pixels scopes custom ERP and CRM workflows, web applications, portals, internal tools and reporting around the people, processes and information involved.'
+  },
+  {
+    question: 'Can you add WhatsApp enquiries or messaging to a project?',
+    answer:
+      'Website enquiry links and handoffs can be included where they suit the project. More automated messaging or system connections are assessed against the available platform access and agreed requirements.'
+  },
+  {
+    question: 'Where is Brown Pixels based and where can you work?',
+    answer:
+      'Brown Pixels is based in Coimbatore, Tamil Nadu, and can discuss projects with businesses in Karur, Trichy and other suitable locations. Initial project discussions can take place online; no branch offices in those cities are claimed.'
+  },
+  {
     question: 'How can I discuss a project?',
     answer:
       'Use the project enquiry form on this page or contact Brown Pixels by email or WhatsApp. Share your goals and a short description of what you need.'

@@ -53,6 +53,9 @@ const emailAvailable = validEmail(CONFIG.email)
           >
             View the live project
           </a>
+          <a class="link service-page__case-link" href="/#work">
+            See project details in the Brown Pixels portfolio
+          </a>
         </div>
       </div>
     </section>
@@ -61,7 +64,7 @@ const emailAvailable = validEmail(CONFIG.email)
       <div class="shell service-page__grid">
         <div>
           <p class="eyebrow">Where we work</p>
-          <h2 class="display service-page__subheading">Coimbatore, Karur, Trichy and beyond.</h2>
+          <h2 class="display service-page__subheading">{{ content.serviceAreaHeading }}</h2>
         </div>
         <p class="lede">{{ content.serviceArea }}</p>
       </div>
@@ -71,7 +74,7 @@ const emailAvailable = validEmail(CONFIG.email)
       <div class="shell service-page__grid">
         <div>
           <p class="eyebrow">What we can build</p>
-          <h2 class="display service-page__subheading">Capabilities shaped to the brief.</h2>
+          <h2 class="display service-page__subheading">{{ content.capabilitiesHeading }}</h2>
         </div>
         <ul class="service-page__list">
           <li v-for="capability in content.capabilities" :key="capability">{{ capability }}</li>

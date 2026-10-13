@@ -2,6 +2,12 @@
 import { onMounted, onBeforeUnmount, ref } from 'vue'
 import AppIcon from './AppIcon.vue'
 import { mediaQuery } from '../composables/mediaQuery.js'
+import { SERVICE_LINK_LABELS, SERVICE_PAGES } from '../servicePages.js'
+
+const serviceLinks = Object.entries(SERVICE_PAGES).map(([key, page]) => ({
+  href: page.path,
+  label: SERVICE_LINK_LABELS[key]
+}))
 
 const services = [
   {
@@ -230,6 +236,15 @@ function onKey(e) {
           </Transition>
         </div>
       </div>
+
+      <nav class="explorer__service-links" aria-label="Detailed service pages">
+        <span class="mono">Explore a service</span>
+        <ul>
+          <li v-for="service in serviceLinks" :key="service.href">
+            <a class="link" :href="service.href">{{ service.label }}</a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </section>
 </template>
@@ -318,6 +333,17 @@ function onKey(e) {
 }
 .panel__blurb { margin-top: 12px; font-size: 15px; line-height: 1.6; color: var(--ink-soft); max-width: 54ch; }
 .panel__link { position: relative; z-index: 1; margin-top: 20px; }
+.explorer__service-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 22px;
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px solid var(--hair-soft);
+}
+.explorer__service-links > span { color: var(--ink-faint); }
+.explorer__service-links ul { display: flex; flex-wrap: wrap; gap: 10px 22px; }
 
 .swap-enter-active, .swap-leave-active { transition: opacity 0.4s var(--ease-out), transform 0.5s var(--ease-out); }
 .swap-enter-from { opacity: 0; transform: translateY(14px); }

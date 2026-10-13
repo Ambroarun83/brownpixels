@@ -26,7 +26,7 @@ import { SERVICE_PAGES } from './servicePages.js'
 
 const initialPath = inject('sitePath', '/')
 const TITLES = {
-  home: 'Brown Pixels | Website & Software Development.',
+  home: 'Website & Software Development in Coimbatore | Brown Pixels',
   privacy: 'Privacy Policy — Brown Pixels',
   terms: 'Terms & Conditions — Brown Pixels',
   'not-found': 'Page not found | Brown Pixels'
@@ -47,7 +47,7 @@ function parse() {
 
 const route = ref(routeForPath(initialPath))
 const HOME_DESCRIPTION =
-  'Brown Pixels builds professional websites, custom web applications, business software and AI-powered solutions for businesses.'
+  'Coimbatore-based Brown Pixels builds responsive business websites, custom web apps, ERP and CRM workflows, and practical AI automation for businesses across Tamil Nadu.'
 
 function syncHead(page) {
   document.title = SERVICE_PAGES[page]?.title || TITLES[page] || TITLES.home
